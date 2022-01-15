@@ -101,12 +101,14 @@ class Game extends React.Component {
                 </li>
             );
         });
-        console.log("move is:")
-        console.log(moves)
 
         const status = this.state.winner 
                         ? 'Winner: ' + this.state.winner 
                         : 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+
+        
+        let currentMoveDesc = "Current move: #" 
+                                + (this.state.stepNumber === 0 ? "[game start]" : this.state.stepNumber);
 
         return (
             <div className="game">
@@ -118,6 +120,7 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
+                    <div>{currentMoveDesc}</div>
                     <ol>{moves}</ol>
                 </div>
             </div>
